@@ -1,6 +1,8 @@
 # docker/php/Dockerfile
 FROM php:8.1-fpm
 
+USER root
+
 # RUN apt-get update --fix-missing -q \
 RUN apt-get update
 
@@ -23,7 +25,7 @@ EXPOSE 11211
 # Default Memcached run command arguments
 CMD ["-m", "128"]
 # Set the user to run Memcached daemon
-#USER daemon
+USER daemon
 
 RUN pecl install docker-php-ext-configure memcached docker-php-ext-install memcached 
 RUN echo "extension=memcached.so" >> /usr/local/etc/php/conf.d/memcached.ini
@@ -32,3 +34,5 @@ RUN yes '' | pecl install -f memcached-3.2.0 docker-php-ext-enable memcached
 # Instalar las extensiones MongoDB
 RUN pecl install mongodb
 RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
+
+USER www-data
