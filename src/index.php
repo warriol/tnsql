@@ -1,4 +1,5 @@
 <?php
+/*
 // http://localhost/index.php
 // echo phpinfo();
 
@@ -33,6 +34,7 @@ else
     // leo el contenido de la variable y lo guardo en la variable
     $contenido = "<h3>Leo desde memcached:</h3".$archivo;
 }
+*/
 ?>
 <!doctype html>
 <html lang="en">
