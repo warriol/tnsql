@@ -28,7 +28,7 @@ services:
     working_dir: /usr/local/apache2/htdocs
   # configuracion del servicio mysql
   mysql:
-    image: mysql:8.0.27
+    image: mysql
     container_name: mysql
     environment:
       # MYSQL_ROOT_NAME: root
@@ -55,7 +55,8 @@ services:
       - 8085:80
   # configuracion del servicio mongo
   mongo:
-    image: mongo:5.0
+    # docker pull mongo:7.0.2
+    image: mongo
     container_name: mongo
     environment:
         - MONGO_INITDB_ROOT_USERNAME=root
@@ -82,4 +83,3 @@ services:
     restart: unless-stopped
     ports:
       - "8081:8081"
-
